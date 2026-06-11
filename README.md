@@ -22,34 +22,72 @@ This skill teaches agents to use Nushell deliberately instead of treating every 
 
 ```text
 nushell-skill/
-├── SKILL.md                 # Required skill instructions and trigger policy
-├── references/
-│   └── cookbook.md          # Optional detailed Nushell examples
-├── scripts/
-│   └── nu_probe.nu          # Optional Nu self-report script
-└── agents/
-    └── openai.yaml          # Optional OpenAI/Codex UI metadata
+├── README.md
+├── LICENSE
+└── skills/
+    └── nushell/
+        ├── SKILL.md                 # Required skill instructions and trigger policy
+        ├── references/
+        │   └── cookbook.md          # Optional detailed Nushell examples
+        ├── scripts/
+        │   └── nu_probe.nu          # Optional Nu self-report script
+        └── agents/
+            └── openai.yaml          # Optional OpenAI/Codex UI metadata
 ```
 
-The portable part of the skill is `SKILL.md` plus any referenced files. `agents/openai.yaml` is optional product-specific metadata and can be ignored by agents that do not use it.
+The portable skill is `skills/nushell/`. Its `SKILL.md` name matches the parent directory, which keeps it compatible with the Agent Skills specification and GitHub CLI skill discovery. `agents/openai.yaml` is optional product-specific metadata and can be ignored by agents that do not use it.
 
 ## Installation
 
-Clone or copy this repository into the skill directory used by your agent, keeping `SKILL.md` at the skill root.
+### GitHub CLI
 
-For Codex-style skill directories:
-
-```sh
-git clone git@github.com:phyzess/nushell-skill.git ~/.codex/skills/nushell
-```
-
-Or with HTTPS:
+If your GitHub CLI includes `gh skill`, this is the most convenient cross-agent install path.
 
 ```sh
-git clone https://github.com/phyzess/nushell-skill.git ~/.codex/skills/nushell
+gh skill install phyzess/nushell-skill nushell --agent codex --scope user
 ```
 
-For project-local use, place the folder wherever your agent discovers skills, then reference or enable the `nushell` skill according to that agent's configuration.
+For Claude Code:
+
+```sh
+gh skill install phyzess/nushell-skill nushell --agent claude-code --scope user
+```
+
+Use `--scope project` instead of `--scope user` to install into the current repository.
+
+### Codex Manual Install
+
+Codex discovers user skills under `~/.agents/skills/` and project skills under `.agents/skills/`.
+
+```sh
+git clone https://github.com/phyzess/nushell-skill.git /tmp/nushell-skill
+mkdir -p ~/.agents/skills
+cp -R /tmp/nushell-skill/skills/nushell ~/.agents/skills/nushell
+```
+
+For project-local use:
+
+```sh
+mkdir -p .agents/skills
+cp -R /tmp/nushell-skill/skills/nushell .agents/skills/nushell
+```
+
+### Claude Code Manual Install
+
+Claude Code discovers personal skills under `~/.claude/skills/` and project skills under `.claude/skills/`.
+
+```sh
+git clone https://github.com/phyzess/nushell-skill.git /tmp/nushell-skill
+mkdir -p ~/.claude/skills
+cp -R /tmp/nushell-skill/skills/nushell ~/.claude/skills/nushell
+```
+
+For project-local use:
+
+```sh
+mkdir -p .claude/skills
+cp -R /tmp/nushell-skill/skills/nushell .claude/skills/nushell
+```
 
 ## Usage
 

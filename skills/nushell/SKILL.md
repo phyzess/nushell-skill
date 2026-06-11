@@ -1,6 +1,7 @@
 ---
 name: nushell
 description: Helps agents run terminal commands correctly in Nushell-first environments and translate shell logic into Nushell's structured pipelines. Use when the user, workspace instructions, or environment indicates Nushell is preferred; when writing, reviewing, or debugging Nushell commands; or when converting bash/zsh/fish snippets to Nu. Do not use solely because a task involves the terminal.
+license: MIT
 metadata:
   short-description: Run commands the Nushell way
 ---
