@@ -1,0 +1,7 @@
+interface:
+  display_name: "Nushell"
+  short_description: "Run shell tasks with Nu-aware command patterns"
+  default_prompt: "Use $nushell to run this terminal task with Nushell-aware syntax and structured pipelines."
+
+policy:
+  allow_implicit_invocation: true
