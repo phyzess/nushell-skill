@@ -1,0 +1,21 @@
+{
+  "name": "nushell-skill",
+  "interface": {
+    "displayName": "Nushell Skill"
+  },
+  "plugins": [
+    {
+      "name": "nushell-skill",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/phyzess/nushell-skill.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

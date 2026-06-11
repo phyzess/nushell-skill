@@ -22,6 +22,11 @@ This skill teaches agents to use Nushell deliberately instead of treating every 
 
 ```text
 nushell-skill/
+├── .codex-plugin/
+│   └── plugin.json
+├── .agents/
+│   └── plugins/
+│       └── marketplace.json
 ├── README.md
 ├── LICENSE
 └── skills/
@@ -38,6 +43,22 @@ nushell-skill/
 The portable skill is `skills/nushell/`. Its `SKILL.md` name matches the parent directory, which keeps it compatible with the Agent Skills specification and GitHub CLI skill discovery. `agents/openai.yaml` is optional product-specific metadata and can be ignored by agents that do not use it.
 
 ## Installation
+
+### Codex Plugin Marketplace
+
+For Codex plugin installation, add this repository as a marketplace source:
+
+```sh
+codex plugin marketplace add phyzess/nushell-skill --ref main
+```
+
+Then open Codex's plugin directory and install **Nushell Skill**:
+
+```text
+/plugins
+```
+
+Use the plugin route when you want Codex app/plugin-directory installation, marketplace updates, or workspace sharing. If you only need the skill files, one of the skill installation methods below is simpler.
 
 ### Codex Skill Installer
 
@@ -142,9 +163,9 @@ Use $nushell to translate this bash command into Nushell.
 
 ## Compatibility
 
-This repository follows the common `SKILL.md` skill-folder shape: YAML frontmatter with `name` and `description`, followed by concise operational instructions. It should be portable to agents that support this style of skill. Agent-specific metadata is isolated under `agents/`.
+This repository follows the common `SKILL.md` skill-folder shape: YAML frontmatter with `name` and `description`, followed by concise operational instructions. It should be portable to agents that support this style of skill. Agent-specific skill metadata is isolated under `skills/nushell/agents/`.
 
-The repository also includes `.codex-plugin/plugin.json`, which lets the same skill folder be packaged as a Codex plugin. Direct skill installation is still the simplest path for most users. Use a Codex plugin marketplace when you want Codex app/plugin-directory installation, workspace sharing, or a bundle that grows beyond one skill.
+The repository also includes `.codex-plugin/plugin.json` and `.agents/plugins/marketplace.json`, which let the same skill folder be packaged and discovered as a Codex plugin. Direct skill installation is still the simplest path for most users. Use the plugin route when you want Codex app/plugin-directory installation, workspace sharing, or a bundle that grows beyond one skill.
 
 ## License
 
