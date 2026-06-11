@@ -39,6 +39,16 @@ The portable skill is `skills/nushell/`. Its `SKILL.md` name matches the parent 
 
 ## Installation
 
+### Codex Skill Installer
+
+In Codex, ask the built-in `$skill-installer` to install the skill from this GitHub directory URL:
+
+```text
+$skill-installer install https://github.com/phyzess/nushell-skill/tree/main/skills/nushell
+```
+
+The installer copies the skill into Codex's user skill directory. Restart Codex if the skill does not appear immediately.
+
 ### GitHub CLI
 
 If your GitHub CLI includes `gh skill`, this is the most convenient cross-agent install path.
@@ -54,6 +64,32 @@ gh skill install phyzess/nushell-skill nushell --agent claude-code --scope user
 ```
 
 Use `--scope project` instead of `--scope user` to install into the current repository.
+
+### Skills CLI
+
+The open `skills` CLI can install this skill across many compatible agents.
+
+```sh
+npx skills add phyzess/nushell-skill --skill nushell
+```
+
+Install globally for Codex:
+
+```sh
+npx skills add phyzess/nushell-skill --skill nushell --agent codex --global --yes
+```
+
+Install globally for Claude Code:
+
+```sh
+npx skills add phyzess/nushell-skill --skill nushell --agent claude-code --global --yes
+```
+
+List skills without installing:
+
+```sh
+npx skills add phyzess/nushell-skill --list
+```
 
 ### Codex Manual Install
 
@@ -107,6 +143,8 @@ Use $nushell to translate this bash command into Nushell.
 ## Compatibility
 
 This repository follows the common `SKILL.md` skill-folder shape: YAML frontmatter with `name` and `description`, followed by concise operational instructions. It should be portable to agents that support this style of skill. Agent-specific metadata is isolated under `agents/`.
+
+The repository also includes `.codex-plugin/plugin.json`, which lets the same skill folder be packaged as a Codex plugin. Direct skill installation is still the simplest path for most users. Use a Codex plugin marketplace when you want Codex app/plugin-directory installation, workspace sharing, or a bundle that grows beyond one skill.
 
 ## License
 

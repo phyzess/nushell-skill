@@ -1,0 +1,28 @@
+{
+  "name": "nushell-skill",
+  "version": "1.0.0",
+  "description": "Nushell-aware terminal command patterns for Codex.",
+  "author": {
+    "name": "phyzess",
+    "url": "https://github.com/phyzess"
+  },
+  "homepage": "https://github.com/phyzess/nushell-skill",
+  "repository": "https://github.com/phyzess/nushell-skill",
+  "license": "MIT",
+  "keywords": ["nushell", "terminal", "shell", "skills", "codex"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Nushell Skill",
+    "shortDescription": "Run terminal tasks with Nu-aware patterns",
+    "longDescription": "A Codex plugin that packages the Nushell agent skill for terminal commands, structured pipelines, safe environment checks, and bash/zsh-to-Nu translation.",
+    "developerName": "phyzess",
+    "category": "Productivity",
+    "capabilities": ["Terminal", "Developer Tools"],
+    "websiteURL": "https://github.com/phyzess/nushell-skill",
+    "defaultPrompt": [
+      "Use Nushell-aware syntax for this terminal task.",
+      "Translate this shell command to Nushell."
+    ],
+    "brandColor": "#4E9A57"
+  }
+}
